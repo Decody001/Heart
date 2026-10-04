@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>Heart & Harmony | Relationship & Marriage Advice</title>     
+    <meta name="description" content="Expert marriage advice, relationship tips, and quizzes to help build a lasting connection.">    
+    <link rel="stylesheet" href="https://cloudflare.com" />
+ 
+    
+    <!-- Font Awesome Icons via cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link to our external stylesheet -->     
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    
+
+
+    <!-- Top Navigation Bar -->
+        <!-- Top Navigation Bar -->
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Heart &amp; Harmony</a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Toggle Navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#advice-feature">Advice</a></li>
+                    <li><a href="index.html#dating-connection">Dating &amp; Connection</a></li>
+                    <li><a href="quiz.html">Relationship Quiz</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                <div class="search-box">
+    <input type="text" name="search" id="search-input" placeholder="Search here...">
+    <div class="search-1"></div>
+    <!-- Added class="search-icon" to match your styling target -->
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+</div>
+
+                </ul>
+
+ 
+</div>
+</ul>
+            </nav>
+        </div>
+        
+    </header>
+
+    <div class="container" style="margin-top: 80px; margin-bottom: 20px;">
+
+
+        
+        
+
+    <!-- ... rest of your html content remains exactly the same ... -->
+
+    <!-- Append this tiny Script tag right before your closing </body> tag -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function toggleMenu() {
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        }
+
+        // Toggle open/close on click
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Auto-close menu smoothly when a link is clicked (great for smooth anchors)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+
+    
+
+    
+</body>
+
+
+<html>
+            <!-- Main Content Container -->
+    <main id="blog-grid" class="container main-content">
+        
+        <!-- Section 1: Marriage (3-Column Layout) -->
+        <section class="content-group" role="region" aria-label="Marriage">
+            <h2 class="section-title">Marriage</h2>
+            
+            <div class="trending-grid-3col">
+                
+                <!-- Card 1 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/mage 1.jpg" alt="Couple laughing and holding hands closely" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Relationship Quiz &bull; 5 min read</span>
+                        <h3 class="card-title"><a href="love-language.html">What Is Your Couple's Love Language? Take the Quick Test</a></h3>
+                        <p class="card-meta">Discover how you and your spouse express care and what steps you can take to sync up.</p>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 2.jpg" alt="Calculator, pen and financial documents representing budget planning" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Marriage Advice &bull; 8 min read</span>
+                        <h3 class="card-title"><a href="posts/financial-stress.html">Navigating Financial Stress Together Without Hurting Your Bond</a></h3>
+                        <p class="card-meta">Practical, level-headed strategies for managing money conversations openly as a team.</p>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 3.jpg" alt="Newly married couple talking on a couch inside their apartment" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Marriage Milestones &bull; 6 min read</span>
+                        <h3 class="card-title"><a href="article.html">The First Year of Marriage: Surprising Realities and How to Adjust</a></h3>
+                        <p class="card-meta">From division of household chores to setting healthy boundaries with in-laws.</p>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 4.jpg" alt="Serious dialogue between two adults talking" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Conflict Resolution &bull; 10 min read</span>
+                        <h3 class="card-title"><a href="#">De-escalating Arguments: How to Reset When Conversations Get Heated</a></h3>
+                        <p class="card-meta">Learn psychological grounding techniques couples use to pause and restore calm mid-fight.</p>
+                    </div>
+                </article>
+
+
+                <nav class="pagination-container" aria-label="Page navigation">
+  <ul class="pagination">
+    <!-- Previous button -->
+    <li><a href="#" class="prev" aria-label="Previous">&laquo;</a></li>
+    
+    <!-- Page numbers -->
+    <li><a href="#" class="active">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    
+    <!-- Next button -->
+    <li><a href="#" class="next" aria-label="Next">&raquo;</a></li>
+  </ul>
+</nav>
+
+            </section>
+
+
+
+</html>
+
+
+ 

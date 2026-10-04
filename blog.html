@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Articles &amp; Blog | Heart &amp; Harmony</title>
+    <meta name="description" content="Explore expert marriage advice, dating tips, and relationship insights from Heart &amp; Harmony.">
+    <!-- Links to your main unified stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        /* Two-column layout grid for Content Feed + Sidebar */
+        
+        @media (max-width: 992px) {
+            .blog-layout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Interactive Filter Control Layout */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-btn {
+            background-color: var(--white);
+            color: var(--text-dark);
+            border: 1px solid #e2d6da;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.25s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* The specific state indicating which button is active/clicked */
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* JavaScript Filtering Utility Classes */
+        .card {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .card.hidden {
+            display: none;
+        }
+
+        /* Dynamic category headers that hide when filtering */
+        .blog-section.hidden {
+            display: none;
+        }
+
+        /* Sidebar Widget Styling */
+        .sidebar {
+            position: sticky;
+            top: 110px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
+            border: 1px solid #f3ebeb;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .related-post-link {
+            display: block;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.4;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+
+        .related-post-link:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .related-post-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Heart &amp; Harmony</a>
+            
+            <button class="menu-toggle" aria-label="Toggle Navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#advice-feature">Advice</a></li>
+                    <li><a href="index.html#dating-connection">Dating &amp; Connection</a></li>
+                    <li><a href="quiz.html">Marriage</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header Intro Header Banner -->
+    <div class="container" style="margin-top: 40px; margin-bottom: 20px;">
+        <h1 style="font-size: 38px; color: var(--text-dark);">Relationship Resource Library</h1>
+    </div>
+
+    <!-- Main Two-Column Structure wrapper -->
+    <div class="container blog-layout-container">
+        
+        <!-- LEFT SIDE: Feed with Filter Controls -->
+        <main role="main">
+            
+            <!-- Category Filtering Menu Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">Show All</button>
+                <button class="filter-btn" data-category="marriage">Marriage Advice</button>
+                <button class="filter-btn" data-category="dating">Dating &amp; Connection</button>
+                <button class="filter-btn" data-category="quizzes">Quizzes</button>
+            </div>
+
+            <!-- Category Section 1: Marriage/Trending Content -->
+            <section class="blog-section" data-section-cat="marriage" role="region" aria-label="Marriage Advice Feed">
+                <h2 class="section-title">Marriage Advice</h2>
+                <div class="trending-grid-3col" style="margin-bottom: 40px;">
+
+                    
+                    <article class="card" data-card-cat="quizzes" role="article">
+                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
+                        <div class="card-content">
+                            <span class="card-meta">Relationship Quiz &bull; 5 min read</span>
+                            <h3 class="card-title"><a href="posts/love-languages.html">What Is Your Couple's Love Language? Take the Quick Test</a></h3>
+                            <p class="card-meta">Discover how you and your spouse express care and what steps you can take to sync up.</p>
+                        </div>
+                    </article>
+
+                    <article class="card" data-card-cat="marriage" role="article">
+                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
+                        <div class="card-content">
+                            <span class="card-meta">Marriage Advice &bull; 8 min read</span>
+                            <h3 class="card-title"><a href="posts/financial-stress.html">Navigating Financial Stress Together Without Hurting Your Bond</a></h3>
+                            <p class="card-meta">Practical, level-headed strategies for managing money conversations openly as a team.</p>
+                        </div>
+                    </article>
+
+                    <article class="card" data-card-cat="marriage" role="article">
+                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
+                        <div class="card-content">
+                            <span class="card-meta">Marriage Milestones &bull; 6 min read</span>
+                            <h3 class="card-title"><a href="#">The First Year of Marriage: Surprising Realities and How to Adjust</a></h3>
+                            <p class="card-meta">From division of household chores to setting healthy boundaries with in-laws.</p>
+                        </div>
+                    </article>
+
+                    <article class="card" data-card-cat="marriage" role="article">
+                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
+                        <div class="card-content">
+                            <span class="card-meta">Conflict Resolution &bull; 10 min read</span>
+                            <h3 class="card-title"><a href="#">De-escalating Arguments: How to Reset When Conversations Get Heated</a></h3>
+                            <p class="card-meta">Learn psychological grounding techniques couples use to pause and restore calm mid-fight.</p>
+                        </div>
+                    </article>
+
+                    <article class="card" data-card-cat="marriage" role="article">
+                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
+                        <div class="card-content">
+                            <span class="card-meta">Intimacy &bull; 7 min read</span>
+                            <h3 class="card-title"><a href="#">Rebuilding Emotional Trust After a Major Relationship Disconnection</a></h3>
+                            <p class="card-meta">A step-by-step roadmap for vulnerability, transparent honesty, and emotional healing.</p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <nav class="pagination-container" aria-label="Page navigation">
+  <ul class="pagination">
+    <!-- Previous button -->
+    <li><a href="#" class="prev" aria-label="Previous">&laquo;</a></li>
+    
+    <!-- Page numbers -->
+    <li><a href="#" class="active">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    
+    <!-- Next button -->
+    <li><a href="#" class="next" aria-label="Next">&raquo;</a></li>
+  </ul>
+</nav>
+
+            </section>
+
+           

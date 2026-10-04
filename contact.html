@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Heart &amp; Harmony</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-layout {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(138, 43, 75, 0.08);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .contact-title {
+            font-size: 36px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #e5dcde;
+            border-radius: 8px;
+            outline: none;
+            background-color: #faf7f8;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(138, 43, 75, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-label {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--text-light);
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus ~ .form-label,
+        .form-input:not(:placeholder-shown) ~ .form-label,
+        .form-textarea:focus ~ .form-label,
+        .form-textarea:not(:placeholder-shown) ~ .form-label {
+            top: -10px;
+            left: 12px;
+            font-size: 12px;
+            background-color: #ffffff;
+            padding: 0 5px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            background-color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(138, 43, 75, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 43, 75, 0.3);
+            filter: brightness(1.05);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #25d366;
+            font-weight: 600;
+            margin-top: 20px;
+            animation: popIn 0.4s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Heart &amp; Harmony</a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" style="color: var(--primary);">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="contact-layout" role="main">
+            <div class="contact-header">
+                <h1 class="contact-title">Get in Touch</h1>
+                <p class="contact-subtitle">Have a question or feedback? Send us a message below.</p>
+            </div>
+
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" class="form-input" placeholder=" " required>
+                    <label for="name" class="form-label">Your Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" class="form-input" placeholder=" " required>
+                    <label for="email" class="form-label">Your Email Address</label>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" class="form-textarea" placeholder=" " required></textarea>
+                    <label for="message" class="form-label">Your Message</label>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submit-button">Send Message</button>
+                <div id="success-alert" class="success-message">Thank you! Your message has been sent successfully.</div>
+            </form>
+        </main>
+    </div>
+
+   <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>About Heart &amp; Harmony</h3>
+                <p style="color: #aaa; margin-top: 10px; max-width: 400px;">Your trusted resource for evidence-based marriage insights, relationship advice, and expert-backed tools to foster lifelong connection.</p>
+            </div>
+            <div>
+                <h3 class="newsletter-title">Join Our Community Newsletter</h3>
+                <p style="color: #aaa;">Get weekly relationship tips and professional guidance delivered straight to your inbox.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Heart &amp; Harmony. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const successAlert = document.getElementById('success-alert');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitButton.textContent = 'Sending...';
+            submitButton.style.opacity = '0.7';
+            submitButton.disabled = true;
+
+            setTimeout(() => {
+                contactForm.reset();
+                submitButton.textContent = 'Send Message';
+                submitButton.style.opacity = '1';
+                submitButton.disabled = false;
+                successAlert.style.display = 'block';
+
+                setTimeout(() => {
+                    successAlert.style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>Heart & Harmony | Relationship & Marriage Advice</title>     
+    <meta name="description" content="Expert marriage advice, relationship tips, and quizzes to help build a lasting connection.">    
+    <link rel="stylesheet" href="https://cloudflare.com" />
+ 
+    
+    <!-- Font Awesome Icons via cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link to our external stylesheet -->     
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    
+
+
+    <!-- Top Navigation Bar -->
+        <!-- Top Navigation Bar -->
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Heart &amp; Harmony</a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Toggle Navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#advice-feature">Advice</a></li>
+                    <li><a href="#dating-connection">Dating &amp; Connection</a></li>
+                    <li><a href="Marriage.html">Marriage</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                    <div class="search-box">
+    <input type="text" name="search" id="search-input" placeholder="Search here...">
+    <div class="search-1"></div>
+    <!-- Added class="search-icon" to match your styling target -->
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+</div>
+
+</div>
+</ul>
+            </nav>
+        </div>
+        
+    </header>
+
+    <!-- ... rest of your html content remains exactly the same ... -->
+
+    <!-- Append this tiny Script tag right before your closing </body> tag -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function toggleMenu() {
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        }
+
+        // Toggle open/close on click
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Auto-close menu smoothly when a link is clicked (great for smooth anchors)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // 1-Minute Popup Control Engine
+const emailPopupModal = document.getElementById('email-popup-modal');
+const popupCloseBtn = document.getElementById('popup-close-btn');
+const popupSubForm = document.getElementById('popup-subscription-form');
+
+// Starts a 60-second background delay countdown timer execution loop
+if (emailPopupModal) {
+    setTimeout(() => {
+        // Validation check: Don't open if the user already interacted during this active browser session
+        if (!sessionStorage.getItem('popupDismissed')) {
+            emailPopupModal.classList.add('show-popup');
+            emailPopupModal.setAttribute('aria-hidden', 'false');
+        }
+    }, 10000); // 10,000 milliseconds = Exactly 1 Minute
+}
+
+// Function utility to safely close the display panel box interface
+function dismissPopup() {
+    emailPopupModal.classList.remove('show-popup');
+    emailPopupModal.setAttribute('aria-hidden', 'true');
+    // Save state memory to session cache storage so it stays closed while browsing tabs
+    sessionStorage.setItem('popupDismissed', 'true');
+}
+
+// Close Triggers
+if (popupCloseBtn) {
+    popupCloseBtn.addEventListener('click', dismissPopup);
+}
+
+// Closes outer modal windows area seamlessly if a click lands anywhere outside the center box frame
+window.addEventListener('click', (event) => {
+    if (event.target === emailPopupModal) {
+        dismissPopup();
+    }
+});
+
+// Processing newsletter inputs collection block action
+if (popupSubForm) {
+    popupSubForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userEmailValue = document.getElementById('popup-email-input').value;
+        
+        // Instant processing alerts confirmation loop feedback
+        alert(`Success! Curated resources dispatched straight to: ${userEmailValue}`);
+        dismissPopup();
+    });
+}
+
+
+    </script>
+
+    
+
+        <!-- DYNAMIC PUSH POPUP EMAIL COLLECTOR -->
+    <div id="email-popup-modal" class="popup-overlay" aria-hidden="true" role="dialog" aria-labelledby="popup-title">
+        <div class="popup-card">
+            <!-- Close Toggle Button -->
+            <button id="popup-close-btn" class="popup-close" aria-label="Close subscription popup">&times;</button>
+            
+            <div class="popup-body">
+                <span class="popup-tag">Free Resource</span>
+                <h2 id="popup-title" class="popup-heading">Deepen Your Emotional Connection</h2>
+                <p class="popup-subtext">Join 10,000+ couples receiving weekly evidence-based communication frameworks and expert marriage exercises.</p>
+                
+                <form id="popup-subscription-form" class="popup-form">
+                    <input type="email" id="popup-email-input" class="popup-input" placeholder="Enter your email address" required aria-label="Email address">
+                    <button type="submit" class="popup-btn">Send Me The Tools</button>
+                </form>
+                
+                <p class="popup-privacy">No spam. Unsubscribe completely at any time.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+     <!-- Featured Hero Section -->
+    <section id="advice-feature" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="tag">Featured Advice</span>
+                <h1 class="hero-title">7 Communication Habits That Keep Marriages Resilient and Strong</h1>
+                <p class="hero-excerpt">Experts share the simple daily shifts in how couples speak to each other that can prevent long-term friction and deepen emotional intimacy.</p>
+                <a href="article.html" class="btn">Read Article</a>
+            </div>
+            <div class="hero-image-placeholder">
+            <img src="image/image alpha.jpg" alt="Couple laughing and holding hands closely" class="card-img">
+            </div>
+        </div>
+    </section>
+
+            <!-- Main Content Container -->
+    <main id="blog-grid" class="container main-content">
+        
+        <!-- Section 1: Trending Content (3-Column Layout) -->
+        <section class="content-group" role="region" aria-label="Trending Content">
+            <h2 class="section-title">Trending Content</h2>
+            
+            <div class="trending-grid-3col">
+                
+                <!-- Card 1 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/mage 1.jpg" alt="Couple laughing and holding hands closely" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Relationship Quiz &bull; 5 min read</span>
+                        <h3 class="card-title"><a href="love-language.html">What Is Your Couple's Love Language? Take the Quick Test</a></h3>
+                        <p class="card-meta">Discover how you and your spouse express care and what steps you can take to sync up.</p>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 2.jpg" alt="Calculator, pen and financial documents representing budget planning" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Marriage Advice &bull; 8 min read</span>
+                        <h3 class="card-title"><a href="posts/financial-stress.html">Navigating Financial Stress Together Without Hurting Your Bond</a></h3>
+                        <p class="card-meta">Practical, level-headed strategies for managing money conversations openly as a team.</p>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 3.jpg" alt="Newly married couple talking on a couch inside their apartment" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Marriage Milestones &bull; 6 min read</span>
+                        <h3 class="card-title"><a href="article.html">The First Year of Marriage: Surprising Realities and How to Adjust</a></h3>
+                        <p class="card-meta">From division of household chores to setting healthy boundaries with in-laws.</p>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 4.jpg" alt="Serious dialogue between two adults talking" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Conflict Resolution &bull; 10 min read</span>
+                        <h3 class="card-title"><a href="#">De-escalating Arguments: How to Reset When Conversations Get Heated</a></h3>
+                        <p class="card-meta">Learn psychological grounding techniques couples use to pause and restore calm mid-fight.</p>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 5.jpg" alt="Two pairs of hands holding each other gently on white sheets" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Intimacy &bull; 7 min read</span>
+                        <h3 class="card-title"><a href="#">Rebuilding Emotional Trust After a Major Relationship Disconnection</a></h3>
+                        <p class="card-meta">A step-by-step roadmap for vulnerability, transparent honesty, and emotional healing.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Dating & Connection (Matching 3-Column Layout) -->
+        <section id="dating-connection" class="content-group" role="region" aria-label="Dating and Connection">
+            <h2 class="section-title">Dating &amp; Connection</h2>
+            
+            <div class="trending-grid-3col">
+                
+                <!-- Card 6 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 6.jpg" alt="Beautiful indoor string lights date setup for parents" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Dating &amp; Connection &bull; 4 min read</span>
+                        <h3 class="card-title"><a href="#">15 Creative At-Home Date Night Ideas for Busy Parents</a></h3>
+                        <p class="card-meta">Keep the spark alive with low-effort, high-reward evening plans right in your living room.</p>
+                    </div>
+                </article>
+
+                <!-- Card 7 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 7.jpg" alt="Two friends interacting and listening with deep attentiveness" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Dating &amp; Connection &bull; 6 min read</span>
+                        <h3 class="card-title"><a href="#">Active Listening Skills: The Secret Ingredient to Deeper Date Conversations</a></h3>
+                        <p class="card-meta">Move past surface-level small talk and connect on a core emotional value scale.</p>
+                    </div>
+                
+                </article>
+<!-- Card 8 -->
+                <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 7.jpg" alt="Two friends interacting and listening with deep attentiveness" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Dating &amp; Connection &bull; 6 min read</span>
+                        <h3 class="card-title"><a href="#">Active Listening Skills: The Secret Ingredient to Deeper Date Conversations</a></h3>
+                        <p class="card-meta">Move past surface-level small talk and connect on a core emotional value scale.</p>
+                    </div>
+                
+                </article>
+
+            </div>
+            </div>
+
+        </section>
+        </section>
+
+
+<div class="share">
+    <a class="x" href="#">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+    <a class="li" href="#">
+        <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+    <a class="fb" href="#">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a class="w" href="#">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</div>
+
+    </main>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>About Heart &amp; Harmony</h3>
+                <p style="color: #aaa; margin-top: 10px; max-width: 400px;">Your trusted resource for evidence-based marriage insights, relationship advice, and expert-backed tools to foster lifelong connection.</p>
+            </div>
+            <div>
+                <h3 class="newsletter-title">Join Our Community Newsletter</h3>
+                <p style="color: #aaa;">Get weekly relationship tips and professional guidance delivered straight to your inbox.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Heart &amp; Harmony. All rights reserved.</p>
+        </div>
+    </footer>
+
+

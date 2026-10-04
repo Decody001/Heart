@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Heart &amp; Harmony</title>
+    <meta name="description" content="Learn about our mission to provide evidence-based relationship advice and expert marriage insights.">
+    <!-- Links to your main unified design stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Fully Centered Layout Structure */
+        .about-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers items horizontally */
+            text-align: center;  /* Centers all text lines */
+            max-width: 800px;    /* Keeps paragraphs readable and narrow */
+            margin: 60px auto;   /* Centers the main container on the screen */
+            padding: 0 20px;
+        }
+
+        .about-title {
+            font-size: 42px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .about-subtitle {
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        /* Centered Author Profile Circle */
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8d3da, #f3e6e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(138, 43, 75, 0.1);
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .mission-box {
+            background-color: var(--white);
+            border: 1px solid #f3ebeb;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            width: 100%;
+        }
+
+        .mission-box h2 {
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .about-title { font-size: 32px; }
+            .about-text p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Heart &amp; Harmony</a>
+            
+            <button class="menu-toggle" aria-label="Toggle Navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#advice-feature">Advice</a></li>
+                    <li><a href="index.html#dating-connection">Dating &amp; Connection</a></li>
+                    <li><a href="quiz.html">Relationship Quiz</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+                
+            </nav>
+        </div>
+    </header>
+
+    <!-- Centered About Main Content -->
+    <div class="container">
+        <main class="about-layout" role="main">
+            
+            <h1 class="about-title">Our Story</h1>
+            <p class="about-subtitle">Empowering couples to build resilient, lifelong connections.</p>
+            
+            <!-- Centered Portrait Section -->
+            <div class="profile-wrapper">
+                <div class="profile-placeholder">
+                    Founder Photo
+                </div>
+            </div>
+
+            <div class="about-text">
+                <p>Welcome to Heart &amp; Harmony. Founded in 2026, our platform was created to bridge the gap between academic relationship research and real-world daily marital struggles. We believe that maintaining a healthy connection shouldn't rely on guesswork, but on proven, intentional communication habits.</p>
+                
+                <p>Whether you are navigating the early challenges of your first year of marriage, adjusting to parenting milestones, or working to restore trust after an emotional disconnection, our expert-backed resources offer actionable pathways toward healing and growth.</p>
+                
+                <!-- Centered Callout Block Card -->
+                <div class="mission-box">
+                    <h2>Our Core Mission</h2>
+                    <p style="margin-bottom: 0; font-style: italic; color: var(--text-light);">"To lower global divorce rates by making professional, evidence-based relationship therapy insights accessible, fast-loading, and completely practical for every household."</p>
+                </div>
+
+                <p>Thank you for letting us be a small part of your relationship journey. Remember, a resilient bond isn't built on a single grand gesture—it is cultivated through micro-moments of everyday care, listening, and validation.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>About Heart &amp; Harmony</h3>
+                <p style="color: #aaa; margin-top: 10px; max-width: 400px;">Your trusted resource for evidence-based marriage insights, relationship advice, and expert-backed tools to foster lifelong connection.</p>
+            </div>
+            <div>
+                <h3 class="newsletter-title">Join Our Community Newsletter</h3>
+                <p style="color: #aaa;">Get weekly relationship tips and professional guidance delivered straight to your inbox.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Heart &amp; Harmony. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Responsive Navigation Control Mobile Burger logic
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+    </script>
+</body>
+</html>
