@@ -8,6 +8,10 @@
     <!-- Links to your main unified stylesheet -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Font Awesome Icons via cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <style>
         /* Two-column layout grid for Content Feed + Sidebar */
         .blog-layout-container {
@@ -135,6 +139,53 @@
     flex-shrink: 0;            /* Prevents the bullet from getting squished */
 }
 
+/* search box Styles */
+.search-box {
+    position: relative;
+    width: 40px;          /* Scaled down from 70px to sit neatly inside the header */
+    height: 40px;         /* Scaled down from 70px */
+    background-color: #faf2f4; /* Subtle background tint that coordinates with your theme */
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(138, 43, 75, 0.1); /* Soft, subtle branding glow instead of heavy dark shadow */
+    overflow: hidden;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Faster, premium hardware-accelerated slide */
+    display: flex;
+    align-items: center;
+}
+
+/* Expands smoothly when a user points their mouse cursor over the circle area */
+.search-box:hover {
+    width: 280px;         /* Fits elegantly on standard screens without overlapping the text logo */
+}
+
+.search-box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0 45px 0 15px; /* Adjusted padding to line up with the smaller 40px circle footprint */
+    font-size: 0.95rem;
+    background-color: transparent;
+    outline: none;
+    color: var(--text-dark);
+}
+
+.search-icon {
+    position: absolute;
+    right: 0;
+    width: 40px;          /* Matches the 40px box height to stay a perfect center square footprint */
+    height: 40px;         /* Matches the 40px box height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary); /* Uses your premium berry tone */
+    font-size: 1.1rem;     /* Slightly lowered from 1.3rem to match the clean scale layout */
+    cursor: pointer;
+    pointer-events: auto;  /* Allows click actions to cleanly pass through straight into the input behind it */
+}
+
+
+
     </style>
 </head>
 <body>
@@ -144,22 +195,39 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">Heart &amp; Harmony</a>
             
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Toggle Navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <nav class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="advice.html">Advice</a></li>
                     <li><a href="dating.html">Dating &amp; Connection</a></li>
-                    <li><a href="marriage.html">Marriage</a></li>
+                    <li><a href="Marriage.html">Marriage</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                </ul>
+
+                    <div class="search-box">
+    <input type="text" name="search" id="search-input" placeholder="Search here...">
+    <div class="search-1"></div>
+    <!-- Added class="search-icon" to match your styling target -->
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>
+    </div>
+</ul>
             </nav>
         </div>
-    </header>
+      
+    
 
     <!-- Page Header Intro Header Banner -->
     <div class="container" style="margin-top: 40px; margin-bottom: 20px;">
-        <h1 style="font-size: 38px; color: var(--text-dark, #333);">Relationship Resource Library</h1>
+        <h1 style="font-size: 18px; color: var(--text-dark, #333);">Relationship Resource Library</h1>
     </div>
 
     <!-- Main Two-Column Structure wrapper -->
@@ -277,6 +345,29 @@
                 });
             });
         });
+
+         const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function toggleMenu() {
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        }
+
+        // Toggle open/close on click
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Auto-close menu smoothly when a link is clicked (great for smooth anchors)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
     </script>
 </body>
 
