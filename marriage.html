@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     <title>Heart & Harmony | Relationship & Marriage Advice</title>     
     <meta name="description" content="Expert marriage advice, relationship tips, and quizzes to help build a lasting connection.">    
-    <link rel="stylesheet" href="https://cloudflare.com" />
- 
     
     <!-- Font Awesome Icons via cdnjs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,11 +14,7 @@
 </head>
 <body>
     
-
-
     <!-- Top Navigation Bar -->
-        <!-- Top Navigation Bar -->
-
     <header class="site-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">Heart &amp; Harmony</a>
@@ -32,74 +26,28 @@
                 <span></span>
             </button>
 
-            
             <nav class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="advice.html">Advice</a></li>
                     <li><a href="dating.html">Dating &amp; Connection</a></li>
-                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                <div class="search-box">
-    <input type="text" name="search" id="search-input" placeholder="Search here...">
-    <div class="search-1"></div>
-    <!-- Added class="search-icon" to match your styling target -->
-    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-</div>
-
+                    
+                    <!-- Fixed and Cleaned Search Bar HTML Placement -->
+                    <li class="search-item">
+                        <div class="search-box">
+                            <input type="text" name="search" id="search-input" placeholder="Search here...">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        </div>
+                    </li>
                 </ul>
-
- 
-</div>
-</ul>
             </nav>
         </div>
-        
     </header>
 
-    <div class="container" style="margin-top: 80px; margin-bottom: 20px;">
-
-
-        
-        
-
-    <!-- ... rest of your html content remains exactly the same ... -->
-
-    <!-- Append this tiny Script tag right before your closing </body> tag -->
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        function toggleMenu() {
-            const isOpen = navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', isOpen);
-        }
-
-        // Toggle open/close on click
-        menuToggle.addEventListener('click', toggleMenu);
-
-        // Auto-close menu smoothly when a link is clicked (great for smooth anchors)
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-    </script>
-
-    
-
-    
-</body>
-
-
-<html>
-            <!-- Main Content Container -->
-    <main id="blog-grid" class="container main-content">
+    <!-- Main Content Container Wrapper -->
+    <main id="blog-grid" class="container main-content" style="margin-top: 40px;">
         
         <!-- Section 1: Marriage (3-Column Layout) -->
         <section class="content-group" role="region" aria-label="Marriage">
@@ -110,7 +58,7 @@
                 <!-- Card 1 -->
                 <article class="card" role="article">
                     <div class="card-image-wrapper">
-                        <img src="image/mage 1.jpg" alt="Couple laughing and holding hands closely" class="card-img">
+                        <img src="mage 1.jpg" alt="Couple laughing and holding hands closely" class="card-img">
                     </div>
                     <div class="card-content">
                         <span class="card-meta">Relationship Quiz &bull; 5 min read</span>
@@ -122,7 +70,7 @@
                 <!-- Card 2 -->
                 <article class="card" role="article">
                     <div class="card-image-wrapper">
-                        <img src="image/image 2.jpg" alt="Calculator, pen and financial documents representing budget planning" class="card-img">
+                        <img src="image 2.jpg" alt="Calculator, pen and financial documents representing budget planning" class="card-img">
                     </div>
                     <div class="card-content">
                         <span class="card-meta">Marriage Advice &bull; 8 min read</span>
@@ -134,7 +82,7 @@
                 <!-- Card 3 -->
                 <article class="card" role="article">
                     <div class="card-image-wrapper">
-                        <img src="image/image 3.jpg" alt="Newly married couple talking on a couch inside their apartment" class="card-img">
+                        <img src="image 3.jpg" alt="Newly married couple talking on a couch inside their apartment" class="card-img">
                     </div>
                     <div class="card-content">
                         <span class="card-meta">Marriage Milestones &bull; 6 min read</span>
@@ -146,7 +94,7 @@
                 <!-- Card 4 -->
                 <article class="card" role="article">
                     <div class="card-image-wrapper">
-                        <img src="image/image 4.jpg" alt="Serious dialogue between two adults talking" class="card-img">
+                        <img src="image 4.jpg" alt="Serious dialogue between two adults talking" class="card-img">
                     </div>
                     <div class="card-content">
                         <span class="card-meta">Conflict Resolution &bull; 10 min read</span>
@@ -155,27 +103,71 @@
                     </div>
                 </article>
 
-            </section>
+            </div>
+        </section>
 
+        <!-- Pagination Section Elements -->
+        <section style="margin-top: 40px; margin-bottom: 40px;">
+            <nav class="pagination-container" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li><a href="#" class="prev" aria-label="Previous">&laquo;</a></li>
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#" class="next" aria-label="Next">&raquo;</a></li>
+                </ul>
+            </nav>
+        </section>
+    </main>
 
-<section>
-         <nav class="pagination-container" aria-label="Page navigation">
-  <ul class="pagination">
-    <!-- Previous button -->
-    <li><a href="#" class="prev" aria-label="Previous">&laquo;</a></li>
-    
-    <!-- Page numbers -->
-    <li><a href="#" class="active">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    
-    <!-- Next button -->
-    <li><a href="#" class="next" aria-label="Next">&raquo;</a></li>
-  </ul>
-</nav>
-</section>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>About Heart &amp; Harmony</h3>
+                <p style="color: #aaa; margin-top: 10px; max-width: 400px;">Your trusted resource for evidence-based marriage insights, relationship advice, and expert-backed tools to foster lifelong connection.</p>
+
+                <div class="container" style="margin-top: 20px; margin-bottom: 20px;"></div>
+                <a href="about.html" class="btn">Read More</a>
+
+            </div>
+            <div>
+                <h3 class="newsletter-title">Join Our Community Newsletter</h3>
+                <p style="color: #aaa;">Get weekly relationship tips and professional guidance delivered straight to your inbox.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Heart &amp; Harmony. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- All Mobile Menu Script Interaction Tasks Run Globally Here -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        function toggleMenu() {
+            const isOpen = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        }
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', toggleMenu);
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu && navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>  
+</body>
 </html>
-
-
- 
