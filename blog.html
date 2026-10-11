@@ -8,9 +8,13 @@
     <!-- Links to your main unified stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-
     <style>
         /* Two-column layout grid for Content Feed + Sidebar */
+        .blog-layout-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
         
         @media (max-width: 992px) {
             .blog-layout-container {
@@ -29,8 +33,8 @@
         }
 
         .filter-btn {
-            background-color: var(--white);
-            color: var(--text-dark);
+            background-color: var(--white, #fff);
+            color: var(--text-dark, #333);
             border: 1px solid #e2d6da;
             padding: 10px 22px;
             border-radius: 25px;
@@ -41,40 +45,40 @@
         }
 
         .filter-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+            border-color: var(--primary, #e63946);
+            color: var(--primary, #e63946);
         }
 
         /* The specific state indicating which button is active/clicked */
         .filter-btn.active {
-            background-color: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
+            background-color: var(--primary, #e63946);
+            color: var(--white, #fff);
+            border-color: var(--primary, #e63946);
         }
 
         /* JavaScript Filtering Utility Classes */
         .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f3ebeb;
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
         .card.hidden {
             display: none;
         }
 
-        /* Dynamic category headers that hide when filtering */
-        .blog-section.hidden {
-            display: none;
-        }
-
         /* Sidebar Widget Styling */
         .sidebar {
             position: sticky;
-            top: 110px;
+            top: 20px;
             height: fit-content;
         }
 
         .sidebar-widget {
-            background-color: var(--white);
-            padding: 25px;
+            background-color: var(--white, #fff);
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             margin-bottom: 30px;
@@ -84,31 +88,53 @@
         .sidebar-title {
             font-size: 18px;
             margin-bottom: 15px;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary, #e63946);
+            padding-bottom: 10px;
             display: inline-block;
         }
 
-        .related-post-link {
-            display: block;
+        /* Pagination grid layout spacing */
+        .pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 8px;
+        }
+        .pagination a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 15px;
-            line-height: 1.4;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 10px;
+            padding: 8px 14px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            color: #333;
+        }
+        .pagination a.active {
+            background: var(--primary, #e63946);
+            color: #fff;
         }
 
-        .related-post-link:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
+        .related-post-link {
+    display: flex;             /* Aligns the bullet and text side-by-side */
+    align-items: center;       /* Centers the bullet vertically relative to the text */
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.4;
+    border-bottom: 1px dashed #eee;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
 
-        .related-post-link:hover {
-            color: var(--primary);
-        }
+.related-post-link::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 20px;           /* Slightly larger bullet for better centering look */
+    margin-right: 12px;        /* Creates a strict wall of space so text NEVER overlaps */
+    flex-shrink: 0;            /* Prevents the bullet from getting squished */
+}
+
     </style>
 </head>
 <body>
@@ -118,19 +144,14 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">Heart &amp; Harmony</a>
             
-            <button class="menu-toggle" aria-label="Toggle Navigation menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
             <nav class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#advice-feature">Advice</a></li>
-                    <li><a href="index.html#dating-connection">Dating &amp; Connection</a></li>
-                    <li><a href="quiz.html">Marriage</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="advice.html">Advice</a></li>
+                    <li><a href="dating.html">Dating &amp; Connection</a></li>
+                    <li><a href="marriage.html">Marriage</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -138,7 +159,7 @@
 
     <!-- Page Header Intro Header Banner -->
     <div class="container" style="margin-top: 40px; margin-bottom: 20px;">
-        <h1 style="font-size: 38px; color: var(--text-dark);">Relationship Resource Library</h1>
+        <h1 style="font-size: 38px; color: var(--text-dark, #333);">Relationship Resource Library</h1>
     </div>
 
     <!-- Main Two-Column Structure wrapper -->
@@ -152,78 +173,140 @@
                 <button class="filter-btn active" data-category="all">Show All</button>
                 <button class="filter-btn" data-category="marriage">Marriage Advice</button>
                 <button class="filter-btn" data-category="dating">Dating &amp; Connection</button>
-                <button class="filter-btn" data-category="quizzes">Quizzes</button>
+                <button class="filter-btn" data-category="advice">Advice</button>
             </div>
 
-            <!-- Category Section 1: Marriage/Trending Content -->
-            <section class="blog-section" data-section-cat="marriage" role="region" aria-label="Marriage Advice Feed">
-                <h2 class="section-title">Marriage Advice</h2>
-                <div class="trending-grid-3col" style="margin-bottom: 40px;">
-
-                    
-                    <article class="card" data-card-cat="quizzes" role="article">
-                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
-                        <div class="card-content">
-                            <span class="card-meta">Relationship Quiz &bull; 5 min read</span>
-                            <h3 class="card-title"><a href="posts/love-languages.html">What Is Your Couple's Love Language? Take the Quick Test</a></h3>
-                            <p class="card-meta">Discover how you and your spouse express care and what steps you can take to sync up.</p>
-                        </div>
-                    </article>
-
-                    <article class="card" data-card-cat="marriage" role="article">
-                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
-                        <div class="card-content">
-                            <span class="card-meta">Marriage Advice &bull; 8 min read</span>
-                            <h3 class="card-title"><a href="posts/financial-stress.html">Navigating Financial Stress Together Without Hurting Your Bond</a></h3>
-                            <p class="card-meta">Practical, level-headed strategies for managing money conversations openly as a team.</p>
-                        </div>
-                    </article>
-
-                    <article class="card" data-card-cat="marriage" role="article">
-                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
-                        <div class="card-content">
-                            <span class="card-meta">Marriage Milestones &bull; 6 min read</span>
-                            <h3 class="card-title"><a href="#">The First Year of Marriage: Surprising Realities and How to Adjust</a></h3>
-                            <p class="card-meta">From division of household chores to setting healthy boundaries with in-laws.</p>
-                        </div>
-                    </article>
-
-                    <article class="card" data-card-cat="marriage" role="article">
-                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
-                        <div class="card-content">
-                            <span class="card-meta">Conflict Resolution &bull; 10 min read</span>
-                            <h3 class="card-title"><a href="#">De-escalating Arguments: How to Reset When Conversations Get Heated</a></h3>
-                            <p class="card-meta">Learn psychological grounding techniques couples use to pause and restore calm mid-fight.</p>
-                        </div>
-                    </article>
-
-                    <article class="card" data-card-cat="marriage" role="article">
-                        <div class="card-image-wrapper"><div class="card-image-placeholder"></div></div>
-                        <div class="card-content">
-                            <span class="card-meta">Intimacy &bull; 7 min read</span>
-                            <h3 class="card-title"><a href="#">Rebuilding Emotional Trust After a Major Relationship Disconnection</a></h3>
-                            <p class="card-meta">A step-by-step roadmap for vulnerability, transparent honesty, and emotional healing.</p>
-                        </div>
-                    </article>
-
+            <!-- BLOG POSTS CARDS GENERATED HERE -->
+            <div class="blog-posts-feed">
+                
+                <!-- Card 1 (Marriage Category) -->
+                <div class="card marriage">
+                    <h3>5 Pillars of a Strong Marriage</h3>
+                    <p>Discover the core foundational elements that keep a marriage thriving over decades.</p>
+                    <a href="love-language.html">Read Full Article &rarr;</a>
                 </div>
 
-                <nav class="pagination-container" aria-label="Page navigation">
-  <ul class="pagination">
-    <!-- Previous button -->
-    <li><a href="#" class="prev" aria-label="Previous">&laquo;</a></li>
-    
-    <!-- Page numbers -->
-    <li><a href="#" class="active">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    
-    <!-- Next button -->
-    <li><a href="#" class="next" aria-label="Next">&raquo;</a></li>
-  </ul>
-</nav>
+                <!-- Card 2 (Dating Category) -->
+                <div class="card dating">
+                    <h3>Healthy Communication Habits in New Relationships</h3>
+                    <p>Setting communication expectations early on can set you up for long term success.</p>
+                </div>
 
-            </section>
+                <!-- Card 3 (Advice Category) -->
+                <div class="card advice">
+                    <h3>Quiz: What is Your Primary Love Language?</h3>
+                    <p>Take our quick interactive assessment to learn how you express and receive affection.</p>
+                </div>
 
-           
+                <!-- Card 4 (Marriage Category) -->
+                <div class="card marriage">
+                    <h3>Navigating Financial Stress Together</h3>
+                    <p>Expert tips on how couples can build healthy money management workflows.</p>
+                </div>
+
+
+
+                 <article class="card" role="article">
+                    <div class="card-image-wrapper">
+                        <img src="image/image 5.jpg" alt="Two pairs of hands holding each other gently on white sheets" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-meta">Intimacy &bull; 7 min read</span>
+                        <h3 class="card-title"><a href="#">Rebuilding Emotional Trust After a Major Relationship Disconnection</a></h3>
+                        <p class="card-meta">A step-by-step roadmap for vulnerability, transparent honesty, and emotional healing.</p>
+                    </div>
+                </article>
+
+
+
+            </div>
+
+            <section>
+                <div class="container" style="margin-top: 80px; margin-bottom: 80px;">
+                <!-- Pagination section controls -->
+            <nav class="pagination-container" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li><a href="#" class="prev" aria-label="Previous">&laquo;</a></li>
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#" class="next" aria-label="Next">&raquo;</a></li>
+                </ul>
+            </nav>
+            </div>
+</section>
+
+        </main>
+
+        <!-- Right Side: Sidebar Widgets -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Trending Now</h3>
+                <div class="container" style="margin-top: 20px; margin-bottom: 20px;"></div>
+                <a href="#" class="related-post-link">What Is Your Couple's Love Language? Take the Test</a>
+                <a href="#" class="related-post-link">Navigating Financial Stress Openly Without Distancing</a>
+                <a href="#" class="related-post-link">15 Creative Low-Budget At-Home Date Night Ideas</a>
+            </div>
+
+            <div class="sidebar-widget" style="background-color: var(--primary); color: white;">
+                <h3 class="sidebar-title" style="border-color: white; color: white;">Daily Relationship Tips</h3>
+                <p style="font-size: 14px; margin-bottom: 15px;">Get quick professional exercises to keep your long-term connection strong.</p>
+                <a href="index.html#blog-grid" class="btn" style="background-color: white; color: var(--primary); width: 100%; text-align: center;">Join Community</a>
+            </div>
+        </aside>
+    </div>
+
+    <!-- REWRITTEN FILTERING JAVASCRIPT -->
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // 1. Switch the active highlight status
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // 2. Get the specific active filtering group
+                const selectedCategory = button.getAttribute('data-category');
+                
+                // 3. Show or hide your blog post .card elements
+                document.querySelectorAll('.card').forEach(post => {
+                    if (selectedCategory === 'all' || post.classList.contains(selectedCategory)) {
+                        post.classList.remove('hidden'); 
+                    } else {
+                        post.classList.add('hidden');  
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+<section>
+<footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>About Heart &amp; Harmony</h3>
+                <p style="color: #aaa; margin-top: 10px; max-width: 400px;">Your trusted resource for evidence-based marriage insights, relationship advice, and expert-backed tools to foster lifelong connection.</p>
+
+                <div class="container" style="margin-top: 20px; margin-bottom: 20px;"></div>
+                <a href="about.html" class="btn">Read More</a>
+
+            </div>
+            <div>
+                <h3 class="newsletter-title">Join Our Community Newsletter</h3>
+                <p style="color: #aaa;">Get weekly relationship tips and professional guidance delivered straight to your inbox.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Heart &amp; Harmony. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+</html>
+
+
