@@ -118,6 +118,723 @@ section, main, .content-group {
 }
 
 .hero-title {
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.hero-excerpt {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+
+.btn-cat {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    
+}
+
+
+.btn-cat:hover {
+    opacity: 0.5
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Core Content Grid Styling */
+.main-content {
+    margin-bottom: 60px;
+}
+
+.content-group {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 26px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-image-placeholder {
+    background: linear-gradient(135deg, #f5edf0, #ebdce1);
+    aspect-ratio: 16/10;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.card-title a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: var(--primary);
+}
+
+.card-meta {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* Footer Layout Styles */
+.site-footer {
+    background-color: #1a1a1a;
+    color: var(--white);
+    padding: 60px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; }
+}
+
+.newsletter-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #919191;
+}
+
+/* Custom 3-Column Trending Grid System */
+.trending-grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Responsive Fallback: Drops from 3 columns to 1 column on tablets and smartphones */
+@media (max-width: 992px) {
+    .trending-grid-3col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .trending-grid-3col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Responsive Mobile Menu Configurations --- */
+
+/* Hidden on Desktop by default */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 15px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-dark);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smartphone & Tablet Media Query Rules Override */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Converts the header navigation into a hidden animated dropdown */
+    .nav-menu {
+        position: absolute;
+        top: 70px; /* Sits perfectly under the header */
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        
+        /* Uses opacity and transform for maximum page loading speed performance */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
+    }
+
+    /* Active state injected cleanly by JavaScript toggle action */
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid #faf5f6;
+    }
+    
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Beautiful CSS transformation: Turns the hamburger into an "X" when active */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+
+/* search box Styles */
+.search-box {
+    position: relative;
+    width: 40px;          /* Scaled down from 70px to sit neatly inside the header */
+    height: 40px;         /* Scaled down from 70px */
+    background-color: #faf2f4; /* Subtle background tint that coordinates with your theme */
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(138, 43, 75, 0.1); /* Soft, subtle branding glow instead of heavy dark shadow */
+    overflow: hidden;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Faster, premium hardware-accelerated slide */
+    display: flex;
+    align-items: center;
+}
+
+/* Expands smoothly when a user points their mouse cursor over the circle area */
+.search-box:hover {
+    width: 280px;         /* Fits elegantly on standard screens without overlapping the text logo */
+}
+
+.search-box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0 45px 0 15px; /* Adjusted padding to line up with the smaller 40px circle footprint */
+    font-size: 0.95rem;
+    background-color: transparent;
+    outline: none;
+    color: var(--text-dark);
+}
+
+.search-icon {
+    position: absolute;
+    right: 0;
+    width: 40px;          /* Matches the 40px box height to stay a perfect center square footprint */
+    height: 40px;         /* Matches the 40px box height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary); /* Uses your premium berry tone */
+    font-size: 1.1rem;     /* Slightly lowered from 1.3rem to match the clean scale layout */
+    cursor: pointer;
+    pointer-events: auto;  /* Allows click actions to cleanly pass through straight into the input behind it */
+}
+
+
+/* Smartphone Responsive Optimization Override */
+@media (max-width: 768px) {
+    .search-box, .search-box:hover {
+        width: calc(100% - 40px); /* Stretches wide automatically on mobile panels without needing hover */
+        margin: 15px 20px;
+        height: 45px;
+    }
+    .search-box input {
+        padding: 0 45px 0 15px;
+    }
+    .search-icon {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+/* Image Container Rules */
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Enforces a perfect matching landscape aspect ratio for every card */
+    overflow: hidden;
+    background-color: #ebdce1;
+}
+
+/* Enforces images to scale and crop perfectly inside your cards without distortion */
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Elegant visual bonus: zooms the photo subtly when hovering on an article card */
+.card:hover .card-img {
+    transform: scale(1.05);
+}
+
+/* social media share button */
+
+.share {
+    display: flex;
+    gap: 14px;
+}
+
+.share a {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fff;
+    color: #1a1a2e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    /* Added background-color to the transition property */
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; 
+}
+
+/* Base hover animation for all icons */
+.share a:hover {
+    color: #fff;
+    transform: translateY(-6px) rotate(-8deg);
+}
+
+/* Individual brand colors applied ONLY on hover */
+.share a.x:hover {
+    background-color: #000000; /* X / Twitter */
+}
+
+.share a.li:hover {
+    background-color: #0077b5; /* LinkedIn */
+}
+
+.share a.fb:hover {
+    background-color: #1877f2; /* Facebook */
+}
+
+.share a.w:hover {
+    background-color: #25d366; /* WhatsApp */
+}
+
+
+
+
+/* Container to handle alignment */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Replaces the .share layout */
+.pagination {
+    display: flex;
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Exact same button design as your share icons */
+.pagination a {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fff;
+    color: #1a1a2e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Exact same hover effect from your share bar */
+.pagination a:hover,
+.pagination a.active {
+    color: #fff;
+    background-color: #1a1a2e; /* Flips the theme colors on hover */
+    transform: translateY(-6px) rotate(-8deg);
+}
+
+/* Style for the current active page button */
+.pagination a.active {
+    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.3);
+}
+
+/* Optional: Slight style difference for Next/Prev arrows */
+.pagination a.prev,
+.pagination a.next {
+    font-size: 1.3rem;
+}
+
+
+/* Popup Outer Overlay Screen Mask */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 45, 45, 0.6); /* Semi-transparent dark overlay blur */
+    backdrop-filter: blur(3px);                /* Soft background blur effect */
+    z-index: 1000;                             /* Forces it on top of sticky navigations */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+    /* Hardware accelerated speed transition configurations */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+/* Activated open trigger status managed by JavaScript */
+.popup-overlay.show-popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* The Popup Dialog Box Frame Card */
+.popup-card {
+    background-color: var(--white);
+    max-width: 500px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(138, 43, 75, 0.15);
+    text-align: center;
+    
+    /* Starts slightly shrunk down for a modern elastic pop animation look */
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.popup-overlay.show-popup .popup-card {
+    transform: scale(1); /* Snaps to full size smoothly */
+}
+
+/* Close Button Icon styling */
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.popup-close:hover {
+    color: var(--primary);
+}
+
+/* Interior Core Typography Layouts */
+.popup-tag {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #fcecef;
+    color: var(--primary);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.popup-heading {
+    font-size: 26px;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.popup-subtext {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Form controls configuration rules */
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.popup-input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 15px;
+    border: 1px solid #dcd1d5;
+    border-radius: 6px;
+    outline: none;
+}
+
+.popup-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(138, 43, 75, 0.1);
+}
+
+.popup-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.popup-btn:hover {
+    filter: brightness(1.08);
+}
+
+.popup-privacy {
+    font-size: 12px;
+    color: #a39296;
+    margin-top: 15px;
+}
+:root {
+    --primary: #8a2b4b; 
+    --secondary: #fdf8f5; 
+    --text-dark: #2d2d2d; 
+    --text-light: #666666;
+    --white: #ffffff;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--secondary);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.2s;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+section, main, .content-group {
+    scroll-margin-top: 90px;
+}
+
+/* Hero Section Layout */
+.hero {
+    background-color: var(--white);
+    padding: 60px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; }
+}
+
+.hero-image-placeholder {
+    background: linear-gradient(135deg, #e8d3da, #f3e6e8);
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #fcecef;
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hero-title {
     font-size: 36px;
     line-height: 1.2;
     margin-bottom: 15px;
